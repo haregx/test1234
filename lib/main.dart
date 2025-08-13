@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+
+  String good = "Guten";
+  String day = "Tag";
+  String world = "Welt";
+  int int20 = 20;
+  String time = "Zeit";
+  int int7 = 7;
+  int int12 = 12;
+  String exclamation = "!";
+  int int24 = 24;
+  String beauty = "Schöne";
+  String morning = "Morgen";
+  String today = "Heute";
+  String space = " ";
+
+  //runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
