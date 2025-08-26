@@ -63,21 +63,25 @@ void main() {
   print('4. pi (π)');
   print('');
 
+  int answerValue = -1;
   print('Gebe als Antwort die Zahl ein, die du für richtig hältst.');
-  String? answer = stdin.readLineSync();
-  if (answer != null && int.tryParse(answer) != null) {
-    int answerValue = int.tryParse(answer) ?? -1;
-    if (answerValue >= 1 && answerValue <= 4) {
-      if (answerValue == 2) {
-        print('Richtig! Der Goldene Schnitt ist die Lösung.');
-      } else {
-        print('Leider falsch. Die richtige Antwort ist der Goldene Schnitt.');
+  
+  while (answerValue < 1 || answerValue > 4) {
+  
+    String? answer = stdin.readLineSync();
+    if (answer != null && int.tryParse(answer) != null) {
+      answerValue = int.tryParse(answer) ?? -1;
+      if (answerValue < 1 || answerValue > 4) {
+        print('Ungültige Antwort. Bitte gib eine Zahl zwischen 1 und 4 ein.');
       }
     } else {
-      print('Ungültige Antwort. Bitte gib eine Zahl zwischen 1 und 4 ein.');
+      print('Ungültige Eingabe. Bitte gib eine Zahl zwischen 1 und 4 ein.');
     }
+  }
+  if (answerValue == 2) {
+    print('Richtig! Der Goldene Schnitt ist die Lösung.');
   } else {
-    print('Ungültige Eingabe. Bitte gib eine Zahl zwischen 1 und 4 ein.');
+    print('Leider falsch. Die richtige Antwort ist der Goldene Schnitt.');
   }
 
 }
