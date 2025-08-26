@@ -88,23 +88,3 @@ double readDouble(String prompt) {
   }
 }
 
-/**
- * Read an integer value from the standard input.
- */
-int readInt(String prompt) {
-  while (true) {
-    stdout.write(prompt);
-    String? input = stdin.readLineSync();
-    if (input == null) {
-      print('Eingabe erforderlich!');
-      continue;
-    }
-    int? value = int.tryParse(input);
-    if (value == null || value <= 0) {
-      print('*** Ungültige Eingabe, bitte eine positive ganze Zahl eingeben! ***');
-      continue;
-    }
-    return value;
-  }
-}
-
