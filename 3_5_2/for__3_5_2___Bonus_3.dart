@@ -1,6 +1,6 @@
 void main() {
 
-  List<int> numbers = [2, 1, 3, 4, 2, 6, 6, 6, 1];
+  List<int> numbers = [2, 1, 3, 4, 2, 6, 6, 6, 1 -4, 5];
 
   print ('---------------------------------------');
   print('--- Zahlen: $numbers');
@@ -38,7 +38,7 @@ void printNumberTypes(List<int> numbers) {
   // - Wie viele gerade/ungerade Zahlen
   // - Wie viele positive/negative Zahlen
   for (int number in numbers) {
-     print('--- $number ist ${(number % 2 == 0) ? 'gerade' : 'ungerade'} ');
+     print('--- $number ist ${(number % 2 == 0) ? 'gerade' : 'ungerade'} und ${(number > 0) ? 'positiv / nicht-neagativ' : 'negativ'}');
   }
 }
 
