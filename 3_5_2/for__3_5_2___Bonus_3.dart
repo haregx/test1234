@@ -38,7 +38,7 @@ void printNumberTypes(List<int> numbers) {
   // - Wie viele gerade/ungerade Zahlen
   // - Wie viele positive/negative Zahlen
   for (int number in numbers) {
-     print('--- $number ist ${(number % 2 == 0) ? 'gerade' : 'ungerade'} und ${(number > 0) ? 'positiv / nicht-neagativ' : 'negativ'}');
+     print('--- $number ist ${(number % 2 == 0) ? 'gerade' : 'ungerade'} und ${(number > 0) ? 'positiv / nicht-negativ' : 'negativ'}');
   }
 }
 
