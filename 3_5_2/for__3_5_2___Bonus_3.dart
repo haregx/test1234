@@ -1,6 +1,6 @@
 void main() {
 
-  List<int> numbers = [2, 1, 3, 4, 2, 6, 6, 6, 1 -4, 5];
+  List<int> numbers = [2, 1, 3, 4, 2, 6, 6, 6, 1, -4, 5];
 
   print ('---------------------------------------');
   print('--- Zahlen: $numbers');
