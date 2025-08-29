@@ -57,7 +57,11 @@ void main() {
     double principal = monthlyRate - interest < restDebt ? (monthlyRate - interest) : restDebt;
     restDebt -= principal;
     sumTotal += interest + principal;
-    print('### Monat $monthsCounter:\tAbschlag: ${(interest + principal).toStringAsFixed(2)}\tZinsen: ${interest.toStringAsFixed(2)} Euro,\tTilgung: ${principal.toStringAsFixed(2)} Euro,\tRestschuld: ${restDebt.toStringAsFixed(2)} Euro');
+    print('### Monat $monthsCounter: \t'+
+          'Rate: ${(interest + principal).toStringAsFixed(2)} \t'+
+          'Zinsen: ${interest.toStringAsFixed(2)} Euro \t'+
+          'Tilgung: ${principal.toStringAsFixed(2)} Euro \t'+
+          'Restschuld: ${restDebt.toStringAsFixed(2)} Euro');
   }
 
   print('####################################################');
