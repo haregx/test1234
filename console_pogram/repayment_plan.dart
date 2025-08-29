@@ -25,9 +25,9 @@ void main() {
   print('####################################################');
   print('###                   Tilgungsplan               ###');
   print('####################################################');
-  print ('######## Kreditsumme:           ${loanAmount.toStringAsFixed(2)} Euro');
-  print ('######## Effektiver Jahreszins: ${(interestRatePerYearEffectiv * 100).toStringAsFixed(2)} %');
-  print ('######## Monatlliche Rate:      ${monthlyRate.toStringAsFixed(2)} Euro');
+  print ('######## Kreditsumme:            ${loanAmount.toStringAsFixed(2)} Euro');
+  print ('######## Effektiver Jahreszins:  ${(interestRatePerYearEffectiv * 100).toStringAsFixed(2)} %');
+  print ('######## Monatliche Rate:        ${monthlyRate.toStringAsFixed(2)} Euro');
   print('####################################################');
 
 
@@ -57,7 +57,7 @@ void main() {
     double principal = monthlyRate - interest < restDebt ? (monthlyRate - interest) : restDebt;
     restDebt -= principal;
     sumTotal += interest + principal;
-    print('### Monat $monthsCounter:\tZinsen: ${interest.toStringAsFixed(2)} Euro,\tTilgung: ${principal.toStringAsFixed(2)} Euro,\tRestschuld: ${restDebt.toStringAsFixed(2)} Euro');
+    print('### Monat $monthsCounter:\tAbschlag: ${(interest + principal).toStringAsFixed(2)}\tZinsen: ${interest.toStringAsFixed(2)} Euro,\tTilgung: ${principal.toStringAsFixed(2)} Euro,\tRestschuld: ${restDebt.toStringAsFixed(2)} Euro');
   }
 
   print('####################################################');
