@@ -88,17 +88,15 @@ void main()
         list(tasks);
         break;
       case 'exit':
-      case 'e':
+      case 'x':
         stdout.writeln('');
         stdout.writeln('\x1B[34m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\x1B[0m');
-        stdout.writeln('\x1B[34mTschüss!\x1B[0m');
+        stdout.writeln('\x1B[34m!!!!!!!!!!!!!!!!!!! Tschüss !!!!!!!!!!!!!!!!!!!!!\x1B[0m');
         stdout.writeln('\x1B[34m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\x1B[0m');
         return;
       default:
         stdout.writeln('');
-        stdout.writeln('\x1B[31m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\x1B[0m');
         stdout.writeln('\x1B[31mFEHLER: Unbekannter Befehl: $command\x1B[0m');
-        stdout.writeln('\x1B[31m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\x1B[0m');
         stdout.writeln('');
     }
   }
@@ -112,9 +110,7 @@ int add(String command, String task, int taskCounter, Map<int, Map<String, bool>
   {
     tasks[taskCounter] = {task: false};
     stdout.writeln('');
-    stdout.writeln('\x1B[32m************************************************\x1B[0m');
     stdout.writeln('\x1B[32mINFO: Aufgabe "${task}" hinzugefügt als unerledigte Aufgabe $taskCounter\x1B[0m');
-    stdout.writeln('\x1B[32m************************************************\x1B[0m');
      stdout.writeln('');
     taskCounter++;
   } 
@@ -136,9 +132,7 @@ void list(Map<int, Map<String, bool>> tasks) {
   if (tasks.isEmpty) 
   {
       stdout.writeln('');
-      stdout.writeln('\x1B[32m*******************************\x1B[0m');
       stdout.writeln('\x1B[32mINFO: Keine Aufgaben vorhanden.\x1B[0m');
-      stdout.writeln('\x1B[32m*******************************\x1B[0m');
       stdout.writeln('');
     return;
   }
@@ -149,7 +143,6 @@ void list(Map<int, Map<String, bool>> tasks) {
   {
       stdout.writeln('\x1B[32m${jobMap.values.first ? '[x]' : '[ ]'} ${jobNum}. ${jobMap.keys.first}\x1B[0m');
   });
-  stdout.writeln('\x1B[32m****************************************************\x1B[0m');
   stdout.writeln('');
 }
 
@@ -165,9 +158,7 @@ void done(String command, String task, Map<int, Map<String, bool>> tasks)
     if (tasks.containsKey(number)) {
       String taskName = tasks[number]!.keys.first;
       stdout.writeln('');
-      stdout.writeln('\x1B[32m************************************************\x1B[0m');
       stdout.writeln('\x1B[32mINFO: Aufgabe $number. "${taskName}" abgehakt.\x1B[0m');
-      stdout.writeln('\x1B[32m************************************************\x1B[0m');
       stdout.writeln('');
       tasks[number] = {taskName: true};
       
@@ -175,18 +166,14 @@ void done(String command, String task, Map<int, Map<String, bool>> tasks)
     else 
     {
         stdout.writeln('');
-        stdout.writeln('\x1B[33m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\x1B[0m');
         stdout.writeln('\x1B[33mWARNUNG: Aufgabe ${number > 0 ? number : ''} nicht gefunden.\x1B[0m');
-        stdout.writeln('\x1B[33m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\x1B[0m');
         stdout.writeln('');
     }
   }
   else 
   {
       stdout.writeln('');
-      stdout.writeln('\x1B[31m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\x1B[0m');
       stdout.writeln('\x1B[31mFEHLER: Bitte bei done auch eine Aufgabennummer angeben.\x1B[0m');
-      stdout.writeln('\x1B[31m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\x1B[0m');
       stdout.writeln('');
   }
 }
