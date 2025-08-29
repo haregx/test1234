@@ -117,9 +117,7 @@ int add(String command, String task, int taskCounter, Map<int, Map<String, bool>
   else 
   {
       stdout.writeln('');
-      stdout.writeln('\x1B[31m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\x1B[0m');
       stdout.writeln('\x1B[31mFEHLER: Bitte bei add auch eine Aufgabenbeschreibung angeben.\x1B[0m');
-      stdout.writeln('\x1B[31m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\x1B[0m');
       stdout.writeln('');
   }
   return taskCounter;
