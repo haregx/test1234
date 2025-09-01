@@ -36,7 +36,7 @@ void main() {
       addWord(vocabulary);
       break;
       case '2':
-        quiz(vocabulary);
+        startQuiz(vocabulary);
         break;
       case '3':
         // Goodbye message
@@ -59,13 +59,13 @@ void addWord(Map<String, String> vocabulary) {
   // Enter the translation
   stdout.write('Gib die Übersetzung ein: ');
   String? translation = stdin.readLineSync();
-  if (word != null && word.isNotEmpty && translation != null && translation.isNotEmpty) {
-    if (!vocabulary.containsKey(word)) {
-      vocabulary[word] = translation;
+  if (word != null && word.trim().isNotEmpty && translation != null && translation.trim().isNotEmpty) {
+    if (!vocabulary.containsKey(word.trim())) {
+      vocabulary[word.trim()] = translation.trim();
       // Vocabulary added
-      stdout.writeln('Vokabel hinzugefügt: $word - $translation');
+      stdout.writeln('Vokabel hinzugefügt: ${word.trim()} - ${translation.trim()}');
     } else {
-      stdout.writeln('${red}Das Wort "$word" ist bereits im Wörterbuch.${colReset}');
+      stdout.writeln('${red}Das Wort "${word.trim()}" ist bereits im Wörterbuch.${colReset}');
     }
   } else {
     stdout.writeln('${red}Ungültige Eingabe, bitte versuche es erneut.${colReset}');
@@ -75,7 +75,7 @@ void addWord(Map<String, String> vocabulary) {
 /**
  * starts a quiz
  */
-void quiz(Map<String, String> vocabulary) {
+void startQuiz(Map<String, String> vocabulary) {
   // If no vocabulary is available
   if (vocabulary.isEmpty) {
     stdout.writeln('${red}Keine Vokabeln für ein Quiz verfügbar.${colReset}');
@@ -89,13 +89,13 @@ void quiz(Map<String, String> vocabulary) {
     // Ask for the translation
     stdout.write('Was ist die Übersetzung von "$word"? % ');
     String? answer = stdin.readLineSync();
-    if (answer == vocabulary[word]) {
+    if (answer != null && vocabulary[word] != null && answer.toLowerCase() == vocabulary[word]!.toLowerCase()) {
       // Correct answer
       stdout.writeln('${green}Richtig!${colReset}');
       correct++;
     } else {
       // Wrong answer, show correct one
-      stdout.writeln('${red}Falsch! Die richtige Übersetzung von "$word" ist: ${green}${vocabulary[word]}${colReset}');
+      stdout.writeln('${red}Falsch! Die richtige Übersetzung von $green$word$colReset ist: ${green}${vocabulary[word]}${colReset}');
       incorrect++;
     }
   }
@@ -104,5 +104,5 @@ void quiz(Map<String, String> vocabulary) {
   double percent = total > 0 ? (correct / total * 100) : 0;
   // Show result
   stdout.writeln('');
-  stdout.writeln('${blue}Ergebnis: $correct richtig, $incorrect falsch ($percent% richtig)${colReset}');
+  stdout.writeln('${blue}Ergebnis: $correct richtig, $incorrect falsch (${percent.toStringAsFixed(2)}% richtig)${colReset}');
 }
