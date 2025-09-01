@@ -1,6 +1,8 @@
 
 import 'dart:io';
 
+String clear = '\x1B[2J\x1B[H'; 
+
 String red = '\x1B[31m';
 String green = '\x1B[32m';
 String blue = '\x1B[34m';
@@ -23,9 +25,10 @@ void main() {
    // 'Vogel': 'bird'
   };
 
+  stdout.write(clear);
   stdout.writeln('');
   // German <> English dictionary
-  stdout.writeln('Deutsch -> Englisch Wörterbuch');
+  stdout.writeln('${underline}${bold}Deutsch -> Englisch Wörterbuch${reset}');
 
   while (true) {
     stdout.writeln('');
