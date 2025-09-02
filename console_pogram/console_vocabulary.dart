@@ -118,3 +118,4 @@ void startQuiz(Map<String, String> vocabulary) {
   stdout.writeln('');
   stdout.writeln('${blue}Ergebnis: $correct richtig, $incorrect falsch (${percent.toStringAsFixed(2)}% richtig)${reset}');
 }
+
