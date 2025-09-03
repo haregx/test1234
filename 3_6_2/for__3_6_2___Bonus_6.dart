@@ -1,6 +1,6 @@
 void main() {
-  Author authorErnestHemingway = Author('Ernest Hemingway', 1899);
-  Book bookTheManAndTheSee = Book('Der alte Mann und das Meer', 127, authorErnestHemingway );
+  Author authorErnestHemingway = Author(name: 'Ernest Hemingway', birthYear: 1899);
+  Book bookTheManAndTheSee = Book(title: 'Der alte Mann und das Meer', pages: 127, author: authorErnestHemingway);
 
   print('Title: ${bookTheManAndTheSee.title}, Seiten: ${bookTheManAndTheSee.pages}, Autor: ${bookTheManAndTheSee.author.name} (geb. ${bookTheManAndTheSee.author.birthYear})');
 }
@@ -8,14 +8,14 @@ void main() {
 class Author {
   String name;
   int birthYear;
-  Author(this.name, this.birthYear);
+  Author({required this.name, required this.birthYear});
 }
 
 class Book {
   String title;
   int pages;
   Author author;
-  Book(this.title, this.pages, this.author);
+  Book({required this.title, required this.pages, required this.author});
 }
 
 
