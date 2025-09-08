@@ -77,11 +77,13 @@ class PasswordRequest {
 //////////////////////
 
 class QuizQuestion {
+  final String rowGuid;
   final String question;
   final List<String> answers;
   final int correctAnswerIndex;
 
   QuizQuestion({
+    required this.rowGuid,
     required this.question,
     required this.answers,
     required this.correctAnswerIndex
