@@ -15,6 +15,7 @@ class MyApp424 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SafeArea(
+        top: false,
         child: Scaffold(
           appBar: AppBar(
             centerTitle: true, 
